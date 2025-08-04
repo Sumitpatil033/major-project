@@ -338,4 +338,27 @@ const sampleListings = [
     },
   ];
   
+  const mongoose = require("mongoose");
+const Listing = require("../models/listing"); // adjust path if needed
+
+
+require("dotenv").config(); // load .env if not in production
+
+const dbUrl = process.env.ATLASDB_URL;
+
+main().then(() => {
+    console.log("MongoDB Connected");
+}).catch((err) => {
+    console.error("MongoDB Error:", err);
+});
+
+async function main() {
+    await mongoose.connect(dbUrl);
+    await Listing.deleteMany({}); // optional: delete old data
+    await Listing.insertMany(sampleListings);
+    console.log("Listings inserted!");
+    mongoose.connection.close(); // close after done
+}
+
+
   module.exports = { data: sampleListings };
