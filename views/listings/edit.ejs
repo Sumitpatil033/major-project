@@ -1,0 +1,67 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+
+
+    <div class="col-8 offset-2">
+
+
+<body>
+    <h3>Edit your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data">
+
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>   
+        <input name="listing[title]" value="<%=listing.title %>" type="text" class="form-control" placeholder="Enter Title"/>
+        <br/>
+        </div>    
+
+       
+        <div class="mb-3">
+        <label for="description" class="form-label">Description</label>  
+          <textarea name="listing[description]" placeholder="Enter Description" class="form-control" ><%=listing.description %></textarea>
+        <br/>
+        </div>    
+
+
+        <div class="mb-3">
+         <label for="image" class="form-label">Upload New Image </label>  
+        <input name="listing[image]"  type="file" class="form-control" placeholder="Enter Image URL" />
+        <br/>
+        </div>    
+
+
+        <div class="row">
+
+        <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>  
+        <input name="listing[price]" value="<%=listing.price %>"type="number" class="form-control" placeholder="Enter Price" />
+        <br/>
+        </div>    
+
+
+
+        <div class="mb-3 col-md-4">
+        <label for="country" class="form-label">Country</label>  
+        <input name="listing[country]" value="<%=listing.country %>" type="text" class="form-control" placeholder="Enter Country" />
+        <br/>
+         </div>   
+
+        </div>
+
+         <div class="mb-3">
+        <label for="location" class="form-label">Location</label>  
+        <input name="listing[location]" value="<%=listing.location %>" type="text" class="form-control" placeholder="Enter Location"/>
+        <br/>
+         </div> 
+
+
+        <button type="listing[submit]" class="btn btn-dark">Edit</button>
+    </form>
+</body>
+</html>
+
+</body>
+
+</div>
+</div>
