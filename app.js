@@ -118,8 +118,12 @@ app.listen(8080, () => {
     console.log("port is listening");
 });
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
+
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewRouter )
-app.use("/", userRouter);
-//reviews
 
+app.use("/", userRouter);
